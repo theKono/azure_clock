@@ -10,8 +10,12 @@ const AuthenticatedRoute = ({ component: C, ...rest }) => (
   <Route
     {...rest}
     render={props =>
-      props.isAuthenticated ? (
-        <C {...props} />
+      rest.isAuthenticated ? (
+        C ? (
+          <C {...props} />
+        ) : (
+          rest.render(props)
+        )
       ) : (
         <Redirect
           to={`/login?redirect=${props.location.pathname}${

@@ -14,7 +14,11 @@ const UnauthenticatedRoute = ({ component: C, ...rest }) => {
       {...rest}
       render={props =>
         !rest.isAuthenticated ? (
-          <C {...props} />
+          C ? (
+            <C {...props} />
+          ) : (
+            rest.render(props)
+          )
         ) : (
           <Redirect to={redirect === "" || redirect == null ? "/" : redirect} />
         )

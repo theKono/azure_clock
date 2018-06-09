@@ -1,17 +1,20 @@
-import React, { Component } from "react";
-import NavBar from "./NavBar";
+import React, { Component, Fragment } from "react";
+import { withRouter } from "react-router-dom";
+
+import Auth from "./containers/Auth";
+import NavBar from "./presentations/NavBar";
+import Routes from "./Routes";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Fragment>
+        <Auth />
         <NavBar />
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <Routes />
+      </Fragment>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
