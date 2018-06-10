@@ -4,6 +4,8 @@ const authUser = (state = null, action) => {
   switch (action.type) {
     case "LOGIN_SUCCESS":
       return action.authUser;
+    case "LOGOUT":
+      return null;
     default:
       return state;
   }
@@ -13,6 +15,8 @@ const fbUser = (state = null, action) => {
   switch (action.type) {
     case "FB_GET_LOGIN_STATUS_SUCCESS":
       return action.fbUser;
+    case "LOGOUT":
+      return null;
     default:
       return state;
   }
@@ -28,7 +32,7 @@ const isFbReady = (state = false, action) => {
     case "FB_READY":
       return true;
     default:
-      return false;
+      return state;
   }
 };
 
