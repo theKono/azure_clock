@@ -1,12 +1,16 @@
 import React from "react";
+
+import Avatar from "./Avatar";
+import LogoutButton from "./LogoutButton";
+
 import logo from "./logo.png";
 
-function NavBar(props) {
+const NavBar = props => {
   const navStyle = { backgroundColor: "#2c3e50" };
   const navBrandStyle = { height: "62px" };
 
   return (
-    <nav className="navbar" style={navStyle}>
+    <nav className="navbar navbar-expand-lg" style={navStyle}>
       <div className="container">
         <a
           className="navbar-brand d-flex align-items-center"
@@ -15,9 +19,13 @@ function NavBar(props) {
         >
           <img src={logo} alt="logo" />
         </a>
+        <div className="form-inline">
+          <Avatar />
+          <LogoutButton />
+        </div>
       </div>
     </nav>
   );
-}
+};
 
 export default NavBar;
