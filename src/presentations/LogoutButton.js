@@ -1,20 +1,7 @@
 import React from "react";
-
-import { connect } from "react-redux";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import faLock from "@fortawesome/fontawesome-free-solid/faLock";
 import axios from "axios";
-
-const mapStateToProps = state => {
-  return { isAuthenticated: state.isAuthenticated, isFbReady: state.isFbReady };
-};
-const mapDispatchToProps = dispatch => {
-  return {
-    onLogout: () => {
-      dispatch({ type: "LOGOUT" });
-    }
-  };
-};
 
 class LogoutButton extends React.Component {
   constructor(props) {
@@ -48,4 +35,4 @@ class LogoutButton extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LogoutButton);
+export default LogoutButton;

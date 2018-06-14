@@ -20,8 +20,12 @@ const NavBar = props => {
           <img src={logo} alt="logo" />
         </a>
         <div className="form-inline">
-          <Avatar />
-          <LogoutButton />
+          <Avatar fbUser={props.fbUser} />
+          <LogoutButton
+            isAuthenticated={props.isAuthenticated}
+            isFbReady={props.isFbReady}
+            onLogout={props.onLogout}
+          />
         </div>
       </div>
     </nav>

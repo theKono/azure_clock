@@ -1,11 +1,5 @@
 import React from "react";
 
-import { connect } from "react-redux";
-
-const mapStateToProps = state => {
-  return { fbUser: state.fbUser };
-};
-
 const Avatar = ({ fbUser }) => {
   if (!fbUser) {
     return null;
@@ -20,4 +14,4 @@ const Avatar = ({ fbUser }) => {
   );
 };
 
-export default connect(mapStateToProps, null)(Avatar);
+export default Avatar;
