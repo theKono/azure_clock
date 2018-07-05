@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import axios from "axios";
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -36,7 +35,6 @@ class Auth extends React.Component {
 
         if (response.authResponse) {
           this.props.onFbGetLoginStatusSuccess(response.authResponse);
-          this.callLoginApi();
         }
       });
 
@@ -46,7 +44,6 @@ class Auth extends React.Component {
 
         if (response.status === "connected") {
           this.props.onFbGetLoginStatusSuccess(response.authResponse);
-          this.callLoginApi();
         }
       });
     };
@@ -62,17 +59,6 @@ class Auth extends React.Component {
       js.src = "https://connect.facebook.net/en_US/sdk.js";
       fjs.parentNode.insertBefore(js, fjs);
     })(document, "script", "facebook-jssdk");
-  }
-
-  callLoginApi() {
-    axios
-      .post(`/api/auth/facebook`)
-      .then(resp => {
-        this.props.onLoginSuccess(resp.data);
-      })
-      .catch(err => {
-        console.error(err);
-      });
   }
 
   render() {
