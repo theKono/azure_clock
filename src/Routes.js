@@ -1,17 +1,24 @@
 import React from "react";
 
-import { Switch } from "react-router-dom";
+import { Switch, Redirect } from "react-router-dom";
 
 import AuthenticatedRoute from "./containers/AuthenticatedRoute";
 import UnauthenticatedRoute from "./containers/UnauthenticatedRoute";
 import Login from "./pages/Login";
+import TitleListPage from "./pages/TitleListPage";
 
 export default ({ childProps }) => (
   <Switch>
     <AuthenticatedRoute
       path="/"
       exact
-      render={() => <h1>Home</h1>}
+      render={() => <Redirect to="/titles" />}
+      props={childProps}
+    />
+    <AuthenticatedRoute
+      path="/titles"
+      exact
+      component={TitleListPage}
       props={childProps}
     />
     <UnauthenticatedRoute
