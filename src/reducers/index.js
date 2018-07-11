@@ -36,9 +36,19 @@ const isFbReady = (state = false, action) => {
   }
 };
 
+const titleList = (state = null, action) => {
+  switch (action.type) {
+    case "FETCH_TITLE_LIST_API_SUCCESS":
+      return action.titleList;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   authUser,
   fbUser,
   isAuthenticated,
-  isFbReady
+  isFbReady,
+  titleList
 });
