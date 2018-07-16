@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import { reducer as notifications } from "react-notification-system-redux";
 
 const authUser = (state = null, action) => {
   switch (action.type) {
@@ -46,6 +47,7 @@ const titleList = (state = null, action) => {
 };
 
 export default combineReducers({
+  notifications,
   authUser,
   fbUser,
   isAuthenticated,
